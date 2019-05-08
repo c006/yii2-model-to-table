@@ -7,11 +7,11 @@ It's generic but way faster than recreating manually.
 ...
 
 
-*-== Add Manually ==-*
+**-== Add Manually ==-**
 
 ...
 
-File Sctructure
+**File Sctructure**
 
 Yii -
 
@@ -28,7 +28,7 @@ Yii -
 ------------- SampleModel.php
 
 
-*How to use*
+**How to use**
 
 * Add model files to the console/runtime/models folder
 * Run below from command line
@@ -37,4 +37,14 @@ Yii -
 `sudo php yii model-to-table/run`
 
 
+...
+
+**Final Note**
+
+Requires my CoreHelper, there are a few functions is uses.
+
+https://github.com/c006/yii2-core
+
+
+You can even copy and add the functions to the ModelToTable class if you wish.
 
