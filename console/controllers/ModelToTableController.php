@@ -40,8 +40,13 @@ class ModelToTableController extends \yii\console\Controller
     private function createTable($array)
     {
 
+        $array['table'] = trim($array['table']);
+        $array['table'] = str_replace('{', '', $array['table']);
+        $array['table'] = str_replace('}', '', $array['table']);
+        $array['table'] = str_replace('%', '', $array['table']);
+
         $column_id = '';
-        $table = 'CREATE TABLE `' . trim($array['table']) . '` (';
+        $table = 'CREATE TABLE `' . $array['table'] . '` (';
         $table .= PHP_EOL;
 
         foreach ($array['data'] as $index => $column) {
@@ -75,7 +80,7 @@ class ModelToTableController extends \yii\console\Controller
         $add = 0;
 
         try {
-            $db = $connection->createCommand("SELECT * FROM `" . trim($array['table']) . "`")->queryAll();
+            $db = $connection->createCommand("SELECT * FROM `" . $array['table'] . "`")->queryAll();
         } catch (Exception $exception) {
             $add = 1;
 
@@ -88,7 +93,7 @@ class ModelToTableController extends \yii\console\Controller
 
                 echo PHP_EOL;
                 echo PHP_EOL;
-                echo "Not Added: " . trim($array['table']);
+                echo "Not Added: " . $array['table'];
                 echo PHP_EOL;
 
             }
